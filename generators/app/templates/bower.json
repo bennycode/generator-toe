@@ -4,5 +4,9 @@
   "description": "",
   "main": "dist/<%= setup.projectName %>.min.js",
   "keywords": [],
-  "dependencies": {}
+  "dependencies": {},
+  "ignore": [
+    "*",
+    "!dist/*"
+  ]
 }

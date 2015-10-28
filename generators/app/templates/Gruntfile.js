@@ -1,10 +1,7 @@
 module.exports = function(grunt) {
   // Dependencies
   require('load-grunt-tasks')(grunt, {
-    pattern: [
-      'grunt-*',
-      '!grunt-template-jasmine-istanbul'
-    ]
+    pattern: ['grunt-*', '!grunt-template-jasmine-istanbul']
   });
 
   // Helper functions
