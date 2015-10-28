@@ -132,15 +132,17 @@ module.exports = yeoman.generators.Base.extend({
       ];
 
       var askInitialQuestions = function (answers) {
-        this.projectName = answers.projectName;
-        this.scriptLanguage = answers.scriptLanguage;
-        this.styleLanguage = answers.styleLanguage;
-        this.organizationName = answers.organizationName;
-        this.licenseType = answers.licenseType;
-        this.cmdGitHubUrl = 'git://github.com/' + this.organizationName + '/' + this.projectName + '.git';
-        this.currentYear = new Date().getFullYear();
+        this.setup = {
+          projectName: answers.projectName,
+          scriptLanguage: answers.scriptLanguage,
+          styleLanguage: answers.styleLanguage,
+          organizationName: answers.organizationName,
+          licenseType: answers.licenseType,
+          currentYear: new Date().getFullYear()
+        };
 
-        console.log('\r\nOkay! Getting everything ready for: https://github.com/' + this.organizationName + '/' + this.projectName);
+        this.setup.cmdGitHubUrl = 'git://github.com/' + this.setup.organizationName + '/' + this.setup.projectName + '.git';
+        console.log('\r\nOkay! Getting everything ready for: https://github.com/' + this.setup.organizationName + '/' + this.setup.projectName);
 
         done();
       };
@@ -152,10 +154,21 @@ module.exports = yeoman.generators.Base.extend({
   default: {},
   writing: {
     writeConfigurationFiles: function () {
+      // .editorconfig
+      this.fs.copy(this.templatePath('.editorconfig'), this.destinationPath('.editorconfig'));
+      // .gitattributes
+      this.fs.copy(this.templatePath('.gitattributes'), this.destinationPath('.gitattributes'));
+      // .gitignore
+      this.fs.copy(this.templatePath('.gitignore'), this.destinationPath('.gitignore'));
+      // .package.json
+      this.template('bower.json', 'bower.json', this, {});
+      // .package.json
       this.template('package.json', 'package.json', this, {});
-
-      if (this.licenseType) {
-        this.template('licenses/' + this.licenseType, 'LICENSE.md', this, {});
+      // Gruntfile.js
+      this.template('Gruntfile.js', 'Gruntfile.js', this, {});
+      // LICENSE.md
+      if (this.setup.licenseType) {
+        this.template('licenses/' + this.setup.licenseType, 'LICENSE.md', this, {});
       }
     }
   },

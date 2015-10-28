@@ -1,6 +1,6 @@
 ## The MIT License (MIT)
 
-Copyright (c) <%= currentYear %> <%= organizationName %>
+Copyright (c) <%= setup.currentYear %> <%= setup.organizationName %>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,0 +1,8 @@
+{
+  "name": "<%= setup.projectName %>",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/<%= setup.projectName %>.min.js",
+  "keywords": [],
+  "dependencies": {}
+}
