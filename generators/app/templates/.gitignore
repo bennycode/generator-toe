@@ -15,6 +15,7 @@ _SpecRunner.html
 /lib/
 /nbproject/private/
 /node_modules/
+/npm-debug.log
 /reports/
 /selenium-debug.log
 /src/main/ts/**/*.js
