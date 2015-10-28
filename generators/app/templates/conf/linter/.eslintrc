@@ -1,0 +1,34 @@
+{
+  "rules": {
+    "quotes": [
+      1,
+      "single",
+      "avoid-escape"
+    ],
+    "eqeqeq": [
+      2,
+      "smart"
+    ],
+    "brace-style": [
+      1,
+      "1tbs",
+      {
+        "allowSingleLine": true
+      }
+    ],
+    "eol-last": 1,
+    "no-nested-ternary": 1,
+    "padded-blocks": [
+      1,
+      "never"
+    ],
+    "space-before-function-paren": [
+      1,
+      "never"
+    ],
+    "space-before-blocks": [
+      1,
+      "always"
+    ]
+  }
+}

@@ -1,6 +1,9 @@
 'use strict';
-var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
+var fs = require('fs');
+var util = require('util');
+var wrench = require('wrench');
+var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 
 module.exports = yeoman.generators.Base.extend({
@@ -153,7 +156,7 @@ module.exports = yeoman.generators.Base.extend({
   configuring: {},
   default: {},
   writing: {
-    writeConfigurationFiles: function () {
+    writeRootFiles: function () {
       // .editorconfig
       this.fs.copy(this.templatePath('.editorconfig'), this.destinationPath('.editorconfig'));
       // .gitattributes
@@ -169,11 +172,24 @@ module.exports = yeoman.generators.Base.extend({
         this.template('licenses/' + this.setup.licenseType, 'LICENSE.md', this, {});
       }
       // nb-configuration.xml
-      this.fs.copy(this.templatePath('nb-configuration.xml'), this.destinationPath('nb-configuration.xml'));
+      // this.fs.copy(this.templatePath('nb-configuration.xml'), this.destinationPath('nb-configuration.xml'));
       // package.json
       this.template('package.json', 'package.json', this, {});
       // README.md
       this.template('package.json', 'package.json', this, {});
+    },
+    writeDirectories: function () {
+      fs.mkdirSync(this.destinationPath('build'));
+      wrench.copyDirSyncRecursive(this.templatePath('conf'), this.destinationPath('conf'));
+      fs.mkdirSync(this.destinationPath('demo'));
+      fs.mkdirSync(this.destinationPath('dist'));
+      fs.mkdirSync(this.destinationPath('docs'));
+      fs.mkdirSync(this.destinationPath('lib'));
+      fs.mkdirSync(this.destinationPath('reports'));
+      fs.mkdirSync(this.destinationPath('src'));
+      fs.mkdirSync(this.destinationPath('src/demo'));
+      fs.mkdirSync(this.destinationPath('src/main'));
+      fs.mkdirSync(this.destinationPath('src/test'));
     }
   },
   conflicts: {},

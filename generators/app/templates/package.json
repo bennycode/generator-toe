@@ -1,6 +1,6 @@
 {
   "name": "<%= setup.projectName %>",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "devDependencies": {
     "coffeelint": "^1",
     "glob": "5.0.15",
@@ -43,5 +43,6 @@
   "repository": {
     "type": "git",
     "url": "<%= setup.cmdGitHubUrl %>"
-  }
+  },
+  "private": true
 }
