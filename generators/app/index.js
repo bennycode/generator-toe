@@ -160,16 +160,20 @@ module.exports = yeoman.generators.Base.extend({
       this.fs.copy(this.templatePath('.gitattributes'), this.destinationPath('.gitattributes'));
       // .gitignore
       this.fs.copy(this.templatePath('.gitignore'), this.destinationPath('.gitignore'));
-      // .package.json
+      // bower.json
       this.template('bower.json', 'bower.json', this, {});
-      // .package.json
-      this.template('package.json', 'package.json', this, {});
       // Gruntfile.js
       this.template('Gruntfile.js', 'Gruntfile.js', this, {});
       // LICENSE.md
       if (this.setup.licenseType) {
         this.template('licenses/' + this.setup.licenseType, 'LICENSE.md', this, {});
       }
+      // nb-configuration.xml
+      this.fs.copy(this.templatePath('nb-configuration.xml'), this.destinationPath('nb-configuration.xml'));
+      // package.json
+      this.template('package.json', 'package.json', this, {});
+      // README.md
+      this.template('package.json', 'package.json', this, {});
     }
   },
   conflicts: {},
