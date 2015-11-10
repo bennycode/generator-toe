@@ -162,7 +162,7 @@ module.exports = yeoman.generators.Base.extend({
       // .gitattributes
       this.fs.copy(this.templatePath('.gitattributes'), this.destinationPath('.gitattributes'));
       // .gitignore
-      this.fs.copy(this.templatePath('.gitignore'), this.destinationPath('.gitignore'));
+      this.fs.copy(this.templatePath('_.gitignore'), this.destinationPath('.gitignore'));
       // bower.json
       this.template('bower.json', 'bower.json', this, {});
       // Gruntfile.js
