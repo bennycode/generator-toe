@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "description": "Yeoman generator",
   "license": "MIT",
-  "main": "app/index.js",
+  "main": "generators/app/index.js",
   "repository": "bennyn/generator-toe",
   "author": {
     "name": "Benny Neugebauer",
