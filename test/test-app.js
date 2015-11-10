@@ -26,6 +26,7 @@ describe('toe:app', function () {
       '.gitignore',
       'bower.json',
       'Gruntfile.js',
+      'LICENSE.md',
       'package.json',
       'README.md'
     ]);
