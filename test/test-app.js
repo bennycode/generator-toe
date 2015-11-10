@@ -15,7 +15,13 @@ describe('toe:app', function () {
 
   it('creates files', function () {
     assert.file([
-      'package.json'
+      '.editorconfig',
+      '.gitattributes',
+      '.gitignore',
+      'bower.json',
+      'Gruntfile.js',
+      'package.json',
+      'README.md'
     ]);
   });
 });
