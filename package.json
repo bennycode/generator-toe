@@ -4,12 +4,11 @@
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "generators/app/index.js",
-  "repository": "bennyn/generator-toe",
-  "author": {
-    "name": "Benny Neugebauer",
-    "email": "bn@bennyn.de",
-    "url": "https://github.com/bennyn"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bennyn/generator-toe.git"
   },
+  "author": "Benny Neugebauer <bn@bennyn.de> (https://github.com/bennyn)",
   "scripts": {
     "test": "mocha"
   },
@@ -27,5 +26,12 @@
   },
   "devDependencies": {
     "mocha": "*"
+  },
+  "bugs": {
+    "url": "https://github.com/bennyn/generator-toe/issues"
+  },
+  "homepage": "https://github.com/bennyn/generator-toe#readme",
+  "directories": {
+    "test": "test"
   }
 }
