@@ -9,7 +9,13 @@ describe('toe:app', function () {
   before(function (done) {
     helpers.run(path.join(__dirname, '../generators/app'))
       .withOptions({skipInstall: true})
-      .withPrompts({someOption: true})
+      .withPrompts({
+        projectName: 'test-project',
+        organizationName: 'welovecoding',
+        scriptLanguage: 'coffee',
+        styleLanguage: 'sass',
+        licenseType: 'mpl-v2.0.md'
+      })
       .on('end', done);
   });
 
