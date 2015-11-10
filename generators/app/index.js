@@ -176,7 +176,7 @@ module.exports = yeoman.generators.Base.extend({
       // package.json
       this.template('package.json', 'package.json', this, {});
       // README.md
-      this.template('package.json', 'package.json', this, {});
+      this.template('README.md', 'README.md', this, {});
     },
     writeDirectories: function () {
       fs.mkdirSync(this.destinationPath('build'));
