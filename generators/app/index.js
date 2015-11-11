@@ -145,7 +145,7 @@ module.exports = yeoman.generators.Base.extend({
         };
 
         this.setup.cmdGitHubUrl = 'git://github.com/' + this.setup.organizationName + '/' + this.setup.projectName + '.git';
-        console.log('\r\nOkay! Getting everything ready for: https://github.com/' + this.setup.organizationName + '/' + this.setup.projectName);
+        console.log('\r\nOkay! Getting everything ready for: https://github.com/' + this.setup.organizationName + '/' + this.setup.projectName + '\r\n');
 
         done();
       };
@@ -193,6 +193,17 @@ module.exports = yeoman.generators.Base.extend({
     }
   },
   conflicts: {},
-  install: {},
-  end: {}
+  install: {
+    installDependencies: function () {
+      this.log('\r\nRunning ' + chalk.yellow('npm install') + ' for you...\r\n');
+      this.npmInstall();
+    }
+  },
+  end: {
+    startDevelopment: function () {
+      this.log('\r\nStarting ' + chalk.yellow('development environment') + ' for you...\r\n');
+      var done = this.async();
+      this.spawnCommand('grunt', ['default', '--force']).on('close', done);
+    }
+  }
 });
