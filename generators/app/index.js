@@ -179,6 +179,32 @@ module.exports = yeoman.generators.Base.extend({
       this.template('_README.md', 'README.md', this, {});
     },
     writeDirectories: function () {
+      var scriptLanguages = [
+        'coffee',
+        'js',
+        'ts'
+      ];
+
+      var styleLanguages = [
+        'css',
+        'less',
+        'sass'
+      ];
+
+      var self = this;
+
+      function createDirectoriesForSources(directory) {
+        fs.mkdirSync(self.destinationPath(directory));
+
+        for (var i in scriptLanguages) {
+          fs.mkdirSync(self.destinationPath(directory + '/' + scriptLanguages[i]));
+        }
+
+        for (var i in styleLanguages) {
+          fs.mkdirSync(self.destinationPath(directory + '/' + styleLanguages[i]));
+        }
+      }
+
       fs.mkdirSync(this.destinationPath('build'));
       wrench.copyDirSyncRecursive(this.templatePath('conf'), this.destinationPath('conf'));
       fs.mkdirSync(this.destinationPath('demo'));
@@ -187,9 +213,9 @@ module.exports = yeoman.generators.Base.extend({
       fs.mkdirSync(this.destinationPath('lib'));
       fs.mkdirSync(this.destinationPath('reports'));
       fs.mkdirSync(this.destinationPath('src'));
-      fs.mkdirSync(this.destinationPath('src/demo'));
-      fs.mkdirSync(this.destinationPath('src/main'));
-      fs.mkdirSync(this.destinationPath('src/test'));
+      createDirectoriesForSources('src/demo');
+      createDirectoriesForSources('src/main');
+      createDirectoriesForSources('src/test');
     }
   },
   conflicts: {},
