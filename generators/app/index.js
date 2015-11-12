@@ -73,7 +73,7 @@ module.exports = yeoman.generators.Base.extend({
             value: 'sass'
           }
         ],
-        default: 1
+        default: 0
       };
 
       var licenseType = {
@@ -141,7 +141,7 @@ module.exports = yeoman.generators.Base.extend({
           projectName: currentDirectory,
           scriptLanguage: answers.scriptLanguage,
           styleLanguage: answers.styleLanguage,
-          organizationName: answers.organizationName,
+          organizationName: answers.organizationName || 'placeholder',
           licenseType: answers.licenseType,
           currentYear: new Date().getFullYear()
         };
@@ -219,6 +219,14 @@ module.exports = yeoman.generators.Base.extend({
       createDirectoriesForSources('src/demo');
       createDirectoriesForSources('src/main');
       createDirectoriesForSources('src/test');
+    },
+    writeWebStormProjectFiles: function () {
+      return;
+      fs.mkdirSync(this.destinationPath('.idea'));
+      this.template('_.idea/_.name', '.idea/.name', this, {});
+      this.template('_.idea/_codeStyleSettings.xml', '.idea/codeStyleSettings.xml', this, {});
+      this.template('_.idea/_project-name.iml', '.idea/' + this.setup.projectName + '.iml', this, {});
+      this.template('_.idea/_watcherTasks.xml', '.idea/watcherTasks.xml', this, {});
     }
   },
   conflicts: {},
