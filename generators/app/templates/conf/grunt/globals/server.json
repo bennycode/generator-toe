@@ -1,6 +1,6 @@
 {
   "port": {
-    "http": 8888,
+    "http": 8889,
     "karma_test_runner": 9876,
     "livereload": 35729,
     "selenium": 4444
