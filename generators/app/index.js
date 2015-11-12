@@ -1,6 +1,7 @@
 'use strict';
 var chalk = require('chalk');
 var fs = require('fs');
+var path = require('path');
 var util = require('util');
 var wrench = require('wrench');
 var yeoman = require('yeoman-generator');
@@ -12,19 +13,17 @@ module.exports = yeoman.generators.Base.extend({
     askInitialQuestions: function () {
       var done = this.async();
 
+      var parentDirectory = path.resolve(process.cwd());
+      var currentDirectory = path.basename(parentDirectory);
+
       // Intro
       var intro = 'Welcome to the glorious ' + chalk.yellow('Toe') + ' generator!';
       this.log(yosay(intro));
 
       // Prompts
-      var projectName = {
-        message: 'What is your project\'s name?',
-        name: 'projectName',
-        type: 'input'
-      };
-
       var organizationName = {
-        message: 'What is organization\'s name on GitHub?',
+        message: 'I am assuming your project name is "' + chalk.yellow(currentDirectory) + '".' +
+        '\r\nWhat is your name on GitHub where you want to host this project?',
         name: 'organizationName',
         type: 'input'
       };
@@ -131,12 +130,15 @@ module.exports = yeoman.generators.Base.extend({
       };
 
       var initialQuestions = [
-        scriptLanguage, styleLanguage, projectName, organizationName, licenseType
+        organizationName,
+        scriptLanguage,
+        styleLanguage,
+        licenseType
       ];
 
       var askInitialQuestions = function (answers) {
         this.setup = {
-          projectName: answers.projectName,
+          projectName: currentDirectory,
           scriptLanguage: answers.scriptLanguage,
           styleLanguage: answers.styleLanguage,
           organizationName: answers.organizationName,
@@ -171,8 +173,9 @@ module.exports = yeoman.generators.Base.extend({
       if (this.setup.licenseType) {
         this.template('licenses/' + this.setup.licenseType, 'LICENSE.md', this, {});
       }
-      // nb-configuration.xml
+      // Support for NetBeans IDE
       // this.fs.copy(this.templatePath('_nb-configuration.xml'), this.destinationPath('nb-configuration.xml'));
+
       // package.json
       this.template('_package.json', 'package.json', this, {});
       // README.md
