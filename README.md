@@ -5,8 +5,6 @@
 
 ## Getting Started
 
-### Initiate the generator
-
 ```bash
 npm install -g npm                # Upgrade to latets npm version
 npm install -g yo                 # Install Yeoman globally
