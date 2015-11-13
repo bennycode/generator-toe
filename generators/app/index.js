@@ -238,7 +238,7 @@ module.exports = yeoman.generators.Base.extend({
       if (process.env.TRAVIS === true) {
         console.log('HELLO 2');
       }
-      
+
       this.log('\r\nRunning ' + chalk.yellow('npm install') + ' for you...\r\n');
       this.npmInstall();
     }
