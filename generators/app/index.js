@@ -236,9 +236,7 @@ module.exports = yeoman.generators.Base.extend({
   install: {
     installDependencies: function () {
       if (process.env.TRAVIS) {
-        console.log('HELLO 1A');
-      } else {
-        console.log('HELLO 1B');
+        return;
       }
 
       this.log('\r\nRunning ' + chalk.yellow('npm install') + ' for you...\r\n');
@@ -247,10 +245,8 @@ module.exports = yeoman.generators.Base.extend({
   },
   end: {
     startDevelopment: function () {
-      if (process.env.TRAVIS === 'true') {
-        console.log('HELLO 2A');
-      } else {
-        console.log('HELLO 2B');
+      if (process.env.TRAVIS) {
+        return;
       }
 
       this.log('\r\nStarting ' + chalk.yellow('development environment') + ' for you...\r\n');
