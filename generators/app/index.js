@@ -1,4 +1,7 @@
 'use strict';
+
+/* globals process */
+
 var chalk = require('chalk');
 var fs = require('fs');
 var path = require('path');
@@ -238,6 +241,10 @@ module.exports = yeoman.generators.Base.extend({
   },
   end: {
     startDevelopment: function () {
+      if (process.env.TRAVIS === true) {
+        console.log('HELLO TRAVIS');
+      }
+
       this.log('\r\nStarting ' + chalk.yellow('development environment') + ' for you...\r\n');
       var done = this.async();
       this.spawnCommand('grunt', ['default', '--force']).on('close', done);
