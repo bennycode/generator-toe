@@ -8,7 +8,8 @@
 ### Initiate the generator
 
 ```bash
-npm install -g yo
-npm install -g generator-toe
-yo toe
+npm install -g npm                # Upgrade to latets npm version
+npm install -g yo                 # Install Yeoman globally
+npm install -g generator-toe      # Install Yeoman generator globally
+yo toe                            # Run Yeoman generator
 ```
