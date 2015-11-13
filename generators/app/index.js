@@ -1,4 +1,7 @@
 'use strict';
+
+/* globals process */
+
 var chalk = require('chalk');
 var fs = require('fs');
 var path = require('path');
@@ -232,12 +235,20 @@ module.exports = yeoman.generators.Base.extend({
   conflicts: {},
   install: {
     installDependencies: function () {
+      if (process.env.TRAVIS) {
+        return;
+      }
+
       this.log('\r\nRunning ' + chalk.yellow('npm install') + ' for you...\r\n');
       this.npmInstall();
     }
   },
   end: {
     startDevelopment: function () {
+      if (process.env.TRAVIS) {
+        return;
+      }
+
       this.log('\r\nStarting ' + chalk.yellow('development environment') + ' for you...\r\n');
       var done = this.async();
       this.spawnCommand('grunt', ['default', '--force']).on('close', done);
