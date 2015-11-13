@@ -235,6 +235,10 @@ module.exports = yeoman.generators.Base.extend({
   conflicts: {},
   install: {
     installDependencies: function () {
+      if (process.env.TRAVIS === true) {
+        console.log('HELLO 2');
+      }
+      
       this.log('\r\nRunning ' + chalk.yellow('npm install') + ' for you...\r\n');
       this.npmInstall();
     }
@@ -242,7 +246,7 @@ module.exports = yeoman.generators.Base.extend({
   end: {
     startDevelopment: function () {
       if (process.env.TRAVIS === true) {
-        console.log('HELLO TRAVIS');
+        console.log('HELLO 2');
       }
 
       this.log('\r\nStarting ' + chalk.yellow('development environment') + ' for you...\r\n');
