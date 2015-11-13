@@ -224,7 +224,6 @@ module.exports = yeoman.generators.Base.extend({
       createDirectoriesForSources('src/test');
     },
     writeWebStormProjectFiles: function () {
-      return;
       fs.mkdirSync(this.destinationPath('.idea'));
       this.template('_.idea/_.name', '.idea/.name', this, {});
       this.template('_.idea/_codeStyleSettings.xml', '.idea/codeStyleSettings.xml', this, {});
