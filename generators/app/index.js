@@ -224,11 +224,12 @@ module.exports = yeoman.generators.Base.extend({
       createDirectoriesForSources('src/test');
     },
     writeWebStormProjectFiles: function () {
+      return;
       fs.mkdirSync(this.destinationPath('.idea'));
       this.template('_.idea/_.name', '.idea/.name', this, {});
-      // this.template('_.idea/_codeStyleSettings.xml', '.idea/codeStyleSettings.xml', this, {});
+      this.template('_.idea/_codeStyleSettings.xml', '.idea/codeStyleSettings.xml', this, {});
       this.template('_.idea/_project-name.iml', '.idea/' + this.setup.projectName + '.iml', this, {});
-      // this.template('_.idea/_watcherTasks.xml', '.idea/watcherTasks.xml', this, {});
+      this.template('_.idea/_watcherTasks.xml', '.idea/watcherTasks.xml', this, {});
     }
   },
   conflicts: {},
