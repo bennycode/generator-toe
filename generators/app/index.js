@@ -176,9 +176,6 @@ module.exports = yeoman.generators.Base.extend({
       if (this.setup.licenseType) {
         this.template('licenses/' + this.setup.licenseType, 'LICENSE.md', this, {});
       }
-      // Support for NetBeans IDE
-      // this.fs.copy(this.templatePath('_nb-configuration.xml'), this.destinationPath('nb-configuration.xml'));
-
       // package.json
       this.template('_package.json', 'package.json', this, {});
       // README.md
@@ -222,6 +219,10 @@ module.exports = yeoman.generators.Base.extend({
       createDirectoriesForSources('src/demo');
       createDirectoriesForSources('src/main');
       createDirectoriesForSources('src/test');
+    },
+    writeNetBeansProjectFiles: function () {
+      return;
+      this.fs.copy(this.templatePath('_nb-configuration.xml'), this.destinationPath('nb-configuration.xml'));
     },
     writeWebStormProjectFiles: function () {
       return;
