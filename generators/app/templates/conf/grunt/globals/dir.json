@@ -24,6 +24,7 @@
   "conf_linter": "conf/linter",
   "conf_nightwatch": "conf/nightwatch",
   "demo": "demo",
+  "dist": "dist",
   "lib": "lib",
   "reports_nightwatch": "reports/nightwatch",
   "reports_nightwatch_screenshots": "reports/nightwatch/screenshots",

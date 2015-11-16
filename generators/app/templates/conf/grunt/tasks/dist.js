@@ -1,10 +1,13 @@
-module.exports = function(grunt) {
-  grunt.registerTask('dist', 'Create release-ready app', function() {
+module.exports = function (grunt) {
+  grunt.registerTask('dist', function () {
     grunt.task.run([
       'init',
-      // 'eslint:src',
-      // 'clean:distributables',
-      // 'uglify:dist'
+      'check:demo',
+      'build:main',
+      'test:specs',
+      'clean:dist',
+      'concat:dist',
+      'uglify:dist'
     ]);
   });
 };

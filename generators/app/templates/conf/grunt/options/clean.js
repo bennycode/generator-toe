@@ -13,6 +13,7 @@ module.exports = {
   build_main_ts: '<%= dir.build_main_ts %>',
   build_test_coffee: '<%= dir.build_test_coffee %>',
   build_test_ts: '<%= dir.build_test_ts %>',
+  dist: '<%= dir.dist %>',
   source_main_js: '<%= dir.source_main_js %>',
   source_main_ts: '<%= dir.source_main_ts %>'
 };
