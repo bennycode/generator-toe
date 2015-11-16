@@ -235,8 +235,10 @@ module.exports = yeoman.generators.Base.extend({
       createDirectoriesForSources('src/test');
     },
     writeNetBeansProjectFiles: function () {
-      return;
       this.fs.copy(this.templatePath('_nb-configuration.xml'), this.destinationPath('nb-configuration.xml'));
+      this.mkdirSync(this.destinationPath('nbproject'));
+      this.template('_nbproject/_project.properties', 'nbproject/project.properties', this, {});
+      this.template('_nbproject/_project.xml', 'nbproject/project.xml', this, {});
     },
     writeWebStormProjectFiles: function () {
       return;
