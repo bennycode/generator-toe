@@ -7,5 +7,5 @@ module.exports = {
       '<%= dir.build_main %>/**/*.js'
     ],
     dest: '<%= dir.dist %>/<%= pkg.name %>.js'
-  },
+  }
 };
