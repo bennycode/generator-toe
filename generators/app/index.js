@@ -11,7 +11,19 @@ var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 
 module.exports = yeoman.generators.Base.extend({
-  initializing: {},
+  initializing: {
+    initHelpers: function () {
+      this.mkdirSync = function (path) {
+        try {
+          fs.mkdirSync(path);
+        } catch (error) {
+          if (error.code != 'EEXIST') {
+            throw error;
+          }
+        }
+      }
+    }
+  },
   prompting: {
     askInitialQuestions: function () {
       var done = this.async();
@@ -197,25 +209,27 @@ module.exports = yeoman.generators.Base.extend({
       var self = this;
 
       function createDirectoriesForSources(directory) {
-        fs.mkdirSync(self.destinationPath(directory));
+        self.mkdirSync(self.destinationPath(directory));
 
         for (var i in scriptLanguages) {
-          fs.mkdirSync(self.destinationPath(directory + '/' + scriptLanguages[i]));
+          self.mkdirSync(self.destinationPath(directory + '/' + scriptLanguages[i]));
         }
 
         for (var i in styleLanguages) {
-          fs.mkdirSync(self.destinationPath(directory + '/' + styleLanguages[i]));
+          self.mkdirSync(self.destinationPath(directory + '/' + styleLanguages[i]));
         }
       }
 
-      fs.mkdirSync(this.destinationPath('build'));
-      wrench.copyDirSyncRecursive(this.templatePath('conf'), this.destinationPath('conf'));
-      fs.mkdirSync(this.destinationPath('demo'));
-      fs.mkdirSync(this.destinationPath('dist'));
-      fs.mkdirSync(this.destinationPath('docs'));
-      fs.mkdirSync(this.destinationPath('lib'));
-      fs.mkdirSync(this.destinationPath('reports'));
-      fs.mkdirSync(this.destinationPath('src'));
+      this.mkdirSync(this.destinationPath('build'));
+      wrench.copyDirSyncRecursive(this.templatePath('conf'), this.destinationPath('conf'), {
+        forceDelete: true
+      });
+      this.mkdirSync(this.destinationPath('demo'));
+      this.mkdirSync(this.destinationPath('dist'));
+      this.mkdirSync(this.destinationPath('docs'));
+      this.mkdirSync(this.destinationPath('lib'));
+      this.mkdirSync(this.destinationPath('reports'));
+      this.mkdirSync(this.destinationPath('src'));
       createDirectoriesForSources('src/demo');
       createDirectoriesForSources('src/main');
       createDirectoriesForSources('src/test');
@@ -226,7 +240,7 @@ module.exports = yeoman.generators.Base.extend({
     },
     writeWebStormProjectFiles: function () {
       return;
-      fs.mkdirSync(this.destinationPath('.idea'));
+      this.mkdirSync(this.destinationPath('.idea'));
       this.template('_.idea/_.name', '.idea/.name', this, {});
       this.template('_.idea/_codeStyleSettings.xml', '.idea/codeStyleSettings.xml', this, {});
       this.template('_.idea/_project-name.iml', '.idea/' + this.setup.projectName + '.iml', this, {});

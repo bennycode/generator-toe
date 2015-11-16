@@ -1,5 +1,6 @@
 module.exports = function (grunt) {
   grunt.registerTask('dist', function () {
+    grunt.option('force', true);
     grunt.task.run([
       'init',
       'check:main',
