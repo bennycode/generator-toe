@@ -10,7 +10,7 @@
   "build_lib_ts": "build/lib/ts",
   "build_main": "build/main",
   "build_main_coffee": "build/main/coffee",
-  "build_main_js": "src/main/js",
+  "build_main_js": "build/main/js",
   "build_main_less": "build/main/less",
   "build_main_sass": "build/main/sass",
   "build_main_ts": "build/main/ts",

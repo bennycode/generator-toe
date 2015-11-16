@@ -35,7 +35,12 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build_demo_js', noOperation);
   grunt.registerTask('build_lib_js', noOperation);
-  grunt.registerTask('build_main_js', noOperation);
+  grunt.registerTask('build_main_js', function() {
+    grunt.task.run([
+      'clean:build_main_js',
+      'copy:build_main_js'
+    ]);
+  });
   grunt.registerTask('build_test_js', noOperation);
 
   // TypeScript

@@ -8,6 +8,7 @@ module.exports = {
   build_lib_ts: '<%= dir.build_lib_ts %>',
   build_main: '<%= dir.build_main %>',
   build_main_coffee: '<%= dir.build_main_coffee %>',
+  build_main_js: '<%= dir.build_main_js %>',
   build_main_less: '<%= dir.build_main_less %>',
   build_main_sass: '<%= dir.build_main_sass %>',
   build_main_ts: '<%= dir.build_main_ts %>',
