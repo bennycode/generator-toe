@@ -1,9 +1,10 @@
 module.exports = function(grunt) {
   // Helpers
+  var supportedBrowsers = ['Chrome', 'Firefox', 'IE', 'PhantomJS'];
+  var browserDefault = 'Chrome';
+
   var isSupportedBrowser = function(browserName) {
     var isSupported = false;
-    var supportedBrowsers = ['Chrome', 'Firefox', 'IE', 'PhantomJS'];
-
     if (browserName) {
       for (var length = supportedBrowsers.length, i = 0; i < length; i++) {
         if (browserName === supportedBrowsers[i]) {
@@ -58,6 +59,11 @@ module.exports = function(grunt) {
   };
 
   var testSpecWithBrowser = function(browserName, testName) {
+    if(!browserName) {
+      grunt.log.writeln('You forgot to specify a browser. Defaulting to "Chrome".');
+      browserName = browserDefault;
+    }
+
     if (isSupportedBrowser(browserName) && testName) {
       // Get info about the Grunt task
       var parts = grunt.task.current.name.split('_');
@@ -74,12 +80,16 @@ module.exports = function(grunt) {
       startTranspilation(scriptLanguage);
       grunt.task.run('karma:' + taskName);
     } else {
-      grunt.log.writeln('Either you specified an unsupported browser ' +
-        'or you forgot to specify the test to be performed.');
+      grunt.log.writeln('You specified an unsupported browser. Please use one of these: ' + supportedBrowsers.join(', '));
     }
   };
 
   var testSpecsWithBrowser = function(browserName) {
+    if(!browserName) {
+      grunt.log.writeln('You forgot to specify a browser. Defaulting to "Chrome".');
+      browserName = browserDefault;
+    }
+
     if (isSupportedBrowser(browserName)) {
       // Parse info about the Grunt task
       var parts = grunt.task.current.name.split('_');
@@ -94,7 +104,7 @@ module.exports = function(grunt) {
         'karma:' + taskName
       ]);
     } else {
-      grunt.log.writeln('Unsupported browser. Please use one of these: ' + supportedBrowsers.join(', '));
+      grunt.log.writeln('You specified an unsupported browser. Please use one of these: ' + supportedBrowsers.join(', '));
     }
   };
 

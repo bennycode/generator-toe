@@ -5,7 +5,7 @@ module.exports = function (grunt) {
       'init',
       'check:main',
       'build:main',
-      'test:specs',
+      'test:specs_browser',
       'clean:dist',
       'concat:dist',
       'uglify:dist'
