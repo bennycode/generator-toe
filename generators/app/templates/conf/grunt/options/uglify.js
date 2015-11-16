@@ -4,8 +4,8 @@ module.exports = {
   },
   dist: {
     files: {
-      '<%= dir.distributables %>/<%= pkg.name %>.min.js': [
-        '<%= dir.source_code.js %>/**/*.js'
+      '<%= dir.dist %>/<%= pkg.name %>.min.js': [
+        '<%= dir.build_main %>/**/*.js'
       ]
     },
     options: {

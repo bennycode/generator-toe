@@ -2,7 +2,7 @@ module.exports = function (grunt) {
   grunt.registerTask('dist', function () {
     grunt.task.run([
       'init',
-      'check:demo',
+      'check:main',
       'build:main',
       'test:specs',
       'clean:dist',
