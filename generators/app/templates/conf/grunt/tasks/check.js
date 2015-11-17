@@ -79,6 +79,7 @@ module.exports = function(grunt) {
       scriptLanguage || grunt.config('script')
     ];
 
+    grunt.option('force', true);
     grunt.task.run(parts.join('_'));
   });
 };
