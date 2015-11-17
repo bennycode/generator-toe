@@ -21,8 +21,8 @@
   "dependencies": {
     "chalk": "^1.0.0",
     "wrench": "~1.5",
-    "yeoman-generator": "^0.19.2",
-    "yosay": "^1.0.2"
+    "yeoman-generator": "~0.21",
+    "yosay": "~1.1"
   },
   "devDependencies": {
     "mocha": "*"
