@@ -12,7 +12,31 @@ var yosay = require('yosay');
 
 module.exports = yeoman.generators.Base.extend({
   initializing: {
-    initHelpers: function () {
+    initMembers: function () {
+      // Variables
+      this.availableOption = {
+        scriptLanguages: [
+          'coffee',
+          'js',
+          'ts'
+        ],
+        styleLanguages: [
+          'css',
+          'less',
+          'sass'
+        ]
+      };
+
+      this.setup = {
+        cmdGitHubUrl: undefined,
+        currentYear: new Date().getFullYear(),
+        licenseType: undefined,
+        organizationName: undefined,
+        projectName: undefined,
+        scriptLanguage: undefined,
+        styleLanguage: undefined
+      };
+      // Helpers
       this.mkdirSync = function (path) {
         try {
           fs.mkdirSync(path);
@@ -21,7 +45,7 @@ module.exports = yeoman.generators.Base.extend({
             throw error;
           }
         }
-      }
+      };
     }
   },
   prompting: {
@@ -152,18 +176,13 @@ module.exports = yeoman.generators.Base.extend({
       ];
 
       var askInitialQuestions = function (answers) {
-        this.setup = {
-          projectName: currentDirectory,
-          scriptLanguage: answers.scriptLanguage,
-          styleLanguage: answers.styleLanguage,
-          organizationName: answers.organizationName || 'placeholder',
-          licenseType: answers.licenseType,
-          currentYear: new Date().getFullYear()
-        };
-
+        this.setup.projectName = currentDirectory;
+        this.setup.scriptLanguage = answers.scriptLanguage;
+        this.setup.styleLanguage = answers.styleLanguage;
+        this.setup.organizationName = answers.organizationName || 'placeholder';
+        this.setup.licenseType = answers.licenseType;
         this.setup.cmdGitHubUrl = 'git://github.com/' + this.setup.organizationName + '/' + this.setup.projectName + '.git';
         console.log('\r\nOkay! Getting everything ready for: https://github.com/' + this.setup.organizationName + '/' + this.setup.projectName + '\r\n');
-
         done();
       };
 
@@ -194,29 +213,19 @@ module.exports = yeoman.generators.Base.extend({
       this.template('_README.md', 'README.md', this, {});
     },
     writeDirectories: function () {
-      var scriptLanguages = [
-        'coffee',
-        'js',
-        'ts'
-      ];
-
-      var styleLanguages = [
-        'css',
-        'less',
-        'sass'
-      ];
 
       var self = this;
 
       function createDirectoriesForSources(directory) {
         self.mkdirSync(self.destinationPath(directory));
 
-        for (var i in scriptLanguages) {
-          self.mkdirSync(self.destinationPath(directory + '/' + scriptLanguages[i]));
-        }
+        var selectedLanguages = [
+          self.setup.scriptLanguage,
+          self.setup.styleLanguage
+        ];
 
-        for (var i in styleLanguages) {
-          self.mkdirSync(self.destinationPath(directory + '/' + styleLanguages[i]));
+        for (var i in selectedLanguages) {
+          self.mkdirSync(self.destinationPath(directory + '/' + selectedLanguages[i]));
         }
       }
 
