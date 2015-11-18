@@ -3,6 +3,9 @@ module.exports = {
     livereload: true,
     nospawn: true
   },
+  demo_html: {
+    files: ['<%= dir.demo %>/**/*.html']
+  },
   source_demo_coffee: {
     files: ['<%= dir.source_demo_coffee %>/**/*.coffee'],
     tasks: ['coffee:build_demo_coffee']
