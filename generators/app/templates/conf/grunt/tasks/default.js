@@ -21,7 +21,7 @@ module.exports = function(grunt) {
       // Test scripts
       'test:specs',
       // Run development environment
-      'dev'
+      'dev:open'
     ]);
   });
 };
