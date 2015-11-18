@@ -9,7 +9,7 @@ module.exports = {
   dev: {
     options: {
       livereload: '<%= server.port.livereload %>',
-      open: 'http://localhost:<%= server.port.http %>/<%= dir.demo %>'
+      open: false
     }
   },
   test_e2e: {
