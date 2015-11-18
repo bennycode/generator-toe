@@ -8,7 +8,9 @@ var os = require('os');
 describe('toe:app', function () {
   before(function (done) {
     helpers.run(path.join(__dirname, '../generators/app'))
-      .withOptions({skipInstall: true})
+      .withOptions({
+        skipInstall: true
+      })
       .withPrompts({
         projectName: 'test-project',
         organizationName: 'welovecoding',
