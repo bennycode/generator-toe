@@ -8,7 +8,8 @@ module.exports = function (grunt) {
       'test:specs_browser',
       'clean:dist',
       'concat:dist',
-      'uglify:dist'
+      'uglify:dist',
+      'comments:dist'
     ]);
   });
 };
