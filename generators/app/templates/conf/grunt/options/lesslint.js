@@ -4,5 +4,5 @@ module.exports = {
       csslintrc: '<%= dir.conf_linter %>/.csslintrc.json'
     }
   },
-  check_main_less: ['<%= dir.source_main_less %>/**/*.less']
+  check_main_less: ['<%= dir.src_main_less %>/**/*.less']
 };

@@ -9,9 +9,9 @@ module.exports = {
     }
   },
   test_specs_js: {
-    src: ['<%= dir.source_main_js %>/**/*.js'],
+    src: ['<%= dir.src_main_js %>/**/*.js'],
     options: {
-      specs: ['<%= dir.source_test_js_jasmine_specs %>/**/*Spec.js']
+      specs: ['<%= dir.src_test_js_jasmine_specs %>/**/*Spec.js']
     }
   },
   test_specs_ts: {

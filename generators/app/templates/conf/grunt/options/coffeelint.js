@@ -4,12 +4,12 @@ module.exports = {
   },
   check_main_coffee: {
     files: {
-      src: '<%= dir.source_main_coffee %>/**/*.coffee'
+      src: '<%= dir.src_main_coffee %>/**/*.coffee'
     }
   },
   check_test_coffee: {
     files: {
-      src: '<%= dir.source_test_coffee %>/**/*.coffee'
+      src: '<%= dir.src_test_coffee %>/**/*.coffee'
     }
   }
 };

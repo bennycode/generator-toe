@@ -5,7 +5,7 @@ module.exports = {
     files: [
       '<%= dir.lib %>/**/*.js',
       '<%= dir.build_main %>/**/*.js',
-      '<%= dir.source_main_js %>/**/*.js'
+      '<%= dir.src_main_js %>/**/*.js'
     ],
     exclude: [],
     preprocessors: {},
@@ -28,7 +28,7 @@ module.exports = {
     files: [{
       src: [
         '<%= dir.build_test %>/**/*.js',
-        '<%= dir.source_test_js_jasmine_specs %>/**/*Spec.js'
+        '<%= dir.src_test_js_jasmine_specs %>/**/*Spec.js'
       ]
     }]
   }

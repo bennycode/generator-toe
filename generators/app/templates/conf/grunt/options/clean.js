@@ -11,6 +11,6 @@ module.exports = {
   build_test_coffee: '<%= dir.build_test_coffee %>',
   build_test_ts: '<%= dir.build_test_ts %>',
   dist: '<%= dir.dist %>',
-  source_main_js: '<%= dir.source_main_js %>',
-  source_main_ts: '<%= dir.source_main_ts %>'
+  src_main_js: '<%= dir.src_main_js %>',
+  src_main_ts: '<%= dir.src_main_ts %>'
 };

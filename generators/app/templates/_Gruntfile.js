@@ -37,34 +37,33 @@ module.exports = function (grunt) {
     grunt.log.writeln(target + ': ' + filepath + ' has ' + action);
 
     var directories = filepath.split(path.sep);
-    var pureExtension = path.extname(filepath).substr(1);
-    if (pureExtension === 'scss') {
-      pureExtension = 'sass';
+    var extension = path.extname(filepath).substr(1);
+    if (extension === 'scss') {
+      extension = 'sass';
     }
     var task = undefined;
 
     // Example: src/main/coffee/MyClass.coffee
     if (directories.length > 3) {
-      var code = directories[0];
-      // TODO: Can be removed if all "source_" tasks have been renamed to "src"
-      if (code === 'src') {
-        code = 'source';
-      }
-      var type = directories[1];      // Can be: "main" or "test"
-      var language = directories[2];  // Can be: "js", "coffee", "less", etc.
-
+      var type = directories[1];      // Values: "main" or "test"
+      var language = directories[2];  // Values: "js", "coffee", "less", etc.
       var task = 'build_' + type + '_' + language;
 
-      switch (pureExtension) {
+      switch (extension) {
         case 'coffee':
         case 'less':
         case 'scss':
-          var currentConfig = grunt.config([pureExtension, task, 'files']);
-          grunt.log.writeln('Old config for "' + task + '": ' + JSON.stringify(currentConfig));
+          // Read config
+          var currentConfig = grunt.config([extension, task, 'files']);
           var currentWorkingDirectory = currentConfig[0]['cwd'];
+
+          // Adjust config
+          grunt.log.writeln('Old config for "' + task + '": ' + JSON.stringify(currentConfig));
           currentConfig[0]['src'] = filepath.replace(/\\/g, '/').replace(currentWorkingDirectory + '/', '');
           grunt.log.writeln('New config for "' + task + '": ' + JSON.stringify(currentConfig));
-          grunt.config([pureExtension, task, 'files'], currentConfig);
+
+          // Apply config
+          grunt.config([extension, task, 'files'], currentConfig);
           break;
       }
     }

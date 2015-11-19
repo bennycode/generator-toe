@@ -10,7 +10,7 @@ module.exports = {
   },
   build_main_coffee: {
     files: [{
-      cwd: '<%= dir.source_main_coffee %>',
+      cwd: '<%= dir.src_main_coffee %>',
       dest: '<%= dir.build_main_coffee %>',
       expand: true,
       ext: '.js',
@@ -19,7 +19,7 @@ module.exports = {
   },
   build_test_coffee: {
     files: [{
-      cwd: '<%= dir.source_test_coffee %>',
+      cwd: '<%= dir.src_test_coffee %>',
       dest: '<%= dir.build_test_coffee %>',
       expand: true,
       ext: '.js',

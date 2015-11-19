@@ -7,11 +7,11 @@ module.exports = {
     }
   },
   build_main_ts: {
-    src: ['<%= dir.source_main_ts %>/**/*'],
+    src: ['<%= dir.src_main_ts %>/**/*'],
     outDir: '<%= dir.build_main_ts %>'
   },
   build_test_ts: {
-    src: ['<%= dir.source_test_ts %>/**/*'],
+    src: ['<%= dir.src_test_ts %>/**/*'],
     outDir: '<%= dir.build_test_ts %>'
   }
 };

@@ -3,7 +3,7 @@ module.exports = {
     standalone: true,
     jar_url: 'https://selenium-release.storage.googleapis.com/2.48/selenium-server-standalone-2.48.2.jar',
     globals_path: '<%= dir.conf_nightwatch %>/globals.js',
-    src_folders: ['<%= dir.source_test_js_nightwatch_tests %>'],
+    src_folders: ['<%= dir.src_test_js_nightwatch_tests %>'],
     output_folder: '<%= dir.reports_nightwatch %>',
     "test_settings": {
       "default": {
@@ -38,7 +38,7 @@ module.exports = {
     standalone: true,
     jar_url: 'https://selenium-release.storage.googleapis.com/2.48/selenium-server-standalone-2.48.2.jar',
     globals_path: '<%= dir.conf_nightwatch %>/globals.js',
-    src_folders: ['<%= dir.source_test_js_nightwatch_tests %>'],
+    src_folders: ['<%= dir.src_test_js_nightwatch_tests %>'],
     output_folder: '<%= dir.reports_nightwatch %>',
     "test_settings": {
       "default": {

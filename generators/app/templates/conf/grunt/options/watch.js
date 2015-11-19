@@ -4,22 +4,22 @@ module.exports = {
     nospawn: true
   },
   // Coffee
-  source_main_coffee: {
-    files: ['<%= dir.source_main_coffee %>/**/*.coffee'],
+  src_main_coffee: {
+    files: ['<%= dir.src_main_coffee %>/**/*.coffee'],
     tasks: ['coffee:build_main_coffee']
   },
-  source_test_coffee: {
-    files: ['<%= dir.source_test_coffee %>/**/*.coffee'],
+  src_test_coffee: {
+    files: ['<%= dir.src_test_coffee %>/**/*.coffee'],
     tasks: ['coffee:build_test_coffee']
   },
   // Less
-  source_main_less: {
-    files: ['<%= dir.source_main_less %>/**/*.less'],
+  src_main_less: {
+    files: ['<%= dir.src_main_less %>/**/*.less'],
     tasks: ['less:build_main_less']
   },
   // SASS
-  source_main_sass: {
-    files: ['<%= dir.source_main_sass %>/**/*.scss'],
+  src_main_sass: {
+    files: ['<%= dir.src_main_sass %>/**/*.scss'],
     tasks: ['sass:build_main_sass']
   },
   // HTML
@@ -27,8 +27,8 @@ module.exports = {
     files: ['<%= dir.demo %>/**/*.html']
   },
   // JavaScript
-  source_main_js: {
-    files: ['<%= dir.source_main_js %>/**/*.js'],
+  src_main_js: {
+    files: ['<%= dir.src_main_js %>/**/*.js'],
     tasks: ['copy:build_main_js']
   }
 };

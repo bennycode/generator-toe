@@ -3,9 +3,9 @@ module.exports = {
     configuration: '<%= dir.conf_linter %>/tslint.json'
   },
   check_main_ts: {
-    src: ['<%= dir.source_main_ts %>/**/*.ts']
+    src: ['<%= dir.src_main_ts %>/**/*.ts']
   },
   check_test_ts: {
-    src: ['<%= dir.source_test_ts %>/**/*.ts']
+    src: ['<%= dir.src_test_ts %>/**/*.ts']
   }
 };
