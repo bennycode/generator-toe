@@ -30,5 +30,10 @@ module.exports = {
   src_main_js: {
     files: ['<%= dir.src_main_js %>/**/*.js'],
     tasks: ['copy:build_main_js']
+  },
+  // HTML
+  src_main_html: {
+    files: ['<%= dir.src_main_html %>/**/*.html'],
+    tasks: ['copy:build_main_html']
   }
 };
