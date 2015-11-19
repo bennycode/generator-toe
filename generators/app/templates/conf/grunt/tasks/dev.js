@@ -4,7 +4,7 @@ module.exports = function (grunt) {
 
     if (option === 'open') {
       var config = grunt.config(['connect', 'dev', 'options']);
-      config['open'] = 'http://localhost:<%= server.port.http %>/<%= dir.demo %>';
+      config['open'] = 'http://localhost:<%= server.port.http %>/';
       grunt.config(['connect', 'dev', 'options'], config);
     }
 

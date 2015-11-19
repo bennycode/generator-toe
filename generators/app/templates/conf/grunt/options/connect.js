@@ -1,5 +1,6 @@
 module.exports = {
   options: {
+    base: '<%= dir.demo %>',
     hostname: '*',
     port: '<%= server.port.http %>',
     onCreateServer: function(server, connect, options) {

@@ -230,10 +230,8 @@ module.exports = yeoman.generators.Base.extend({
       }
 
       this.mkdirSync(this.destinationPath('build'));
-      wrench.copyDirSyncRecursive(this.templatePath('conf'), this.destinationPath('conf'), {
-        forceDelete: true
-      });
-      this.mkdirSync(this.destinationPath('demo'));
+      wrench.copyDirSyncRecursive(this.templatePath('conf'), this.destinationPath('conf'), {forceDelete: true});
+      wrench.copyDirSyncRecursive(this.templatePath('demo'), this.destinationPath('demo'), {forceDelete: true});
       this.mkdirSync(this.destinationPath('dist'));
       this.mkdirSync(this.destinationPath('docs'));
       this.mkdirSync(this.destinationPath('lib'));
