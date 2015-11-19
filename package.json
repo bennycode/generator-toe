@@ -1,6 +1,6 @@
 {
   "name": "generator-toe",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "generators/app/index.js",
