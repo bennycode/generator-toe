@@ -50,7 +50,7 @@ module.exports = function (grunt) {
       if (code === 'src') {
         code = 'source';
       }
-      var type = directories[1];      // Can be: "main", "demo" or "test"
+      var type = directories[1];      // Can be: "main" or "test"
       var language = directories[2];  // Can be: "js", "coffee", "less", etc.
 
       var task = 'build_' + type + '_' + language;

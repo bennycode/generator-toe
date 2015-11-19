@@ -1,13 +1,4 @@
 module.exports = {
-  build_demo_coffee: {
-    files: [{
-      cwd: '<%= dir.source_demo_coffee %>',
-      dest: '<%= dir.build_demo_coffee %>',
-      expand: true,
-      ext: '.js',
-      src: '**/*.coffee'
-    }]
-  },
   build_lib_coffee: {
     files: [{
       cwd: '<%= dir.lib %>',

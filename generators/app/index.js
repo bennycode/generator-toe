@@ -239,7 +239,6 @@ module.exports = yeoman.generators.Base.extend({
       this.mkdirSync(this.destinationPath('lib'));
       this.mkdirSync(this.destinationPath('reports'));
       this.mkdirSync(this.destinationPath('src'));
-      createDirectoriesForSources('src/demo');
       createDirectoriesForSources('src/main');
       createDirectoriesForSources('src/test');
     },
