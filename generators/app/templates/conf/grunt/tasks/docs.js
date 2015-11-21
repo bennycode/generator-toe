@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-  grunt.registerTask('docs', 'Generate documentation', function(programmingLanguage) {
+  grunt.registerTask('docs', function(programmingLanguage) {
     var tasks = [
       'clean:documentation'
     ];
