@@ -1,7 +1,8 @@
 module.exports = {
   options: {
+    event: ['changed', 'added', 'deleted'],
     livereload: true,
-    nospawn: true
+    spawn: false
   },
   // Coffee
   src_main_coffee: {

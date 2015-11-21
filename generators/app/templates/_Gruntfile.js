@@ -58,9 +58,9 @@ module.exports = function (grunt) {
           var currentWorkingDirectory = currentConfig[0]['cwd'];
 
           // Adjust config
-          grunt.log.writeln('Old config for "' + task + '": ' + JSON.stringify(currentConfig));
+          grunt.log.writeln('Old config for "' + extension + ':' + task + '": ' + JSON.stringify(currentConfig));
           currentConfig[0]['src'] = filepath.replace(/\\/g, '/').replace(currentWorkingDirectory + '/', '');
-          grunt.log.writeln('New config for "' + task + '": ' + JSON.stringify(currentConfig));
+          grunt.log.writeln('New config for "' + extension + ':' + task + '": ' + JSON.stringify(currentConfig));
 
           // Apply config
           grunt.config([extension, task, 'files'], currentConfig);
