@@ -26,6 +26,7 @@ describe('toe:app', function () {
       '.editorconfig',
       '.gitattributes',
       '.gitignore',
+      '.travis.yml',
       'bower.json',
       'Gruntfile.js',
       'LICENSE.md',
