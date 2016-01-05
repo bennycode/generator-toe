@@ -1,6 +1,6 @@
 module.exports = {
   options: {
-    vendor: []
+    vendor: '<%= dir.lib %>/**/*.js'
   },
   test_specs_coffee: {
     src: ['<%= dir.build_main_coffee %>/**/*.js'],
