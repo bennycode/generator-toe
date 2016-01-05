@@ -73,9 +73,14 @@ module.exports = function(grunt) {
       var taskName = 'test_specs_browser';
       grunt.log.writeln('Testing specification (written in ' + scriptLanguage + '): ' + testName);      
       // Override specification setting
-      var spec = '<%= dir.build_test_' + scriptLanguage + '_jasmine_specs %>/' + testName + '.js';
+      var spec = '<%= dir.build_test_' + scriptLanguage + ' %>/' + testName + '.js';
+      grunt.log.writeln('Testing specification (written in ' + scriptLanguage + '): ' + spec);
       var files = [{
-        src: [spec]
+        src: [
+          '<%= dir.lib %>/**/*.js',
+          '<%= dir.build_main_' + scriptLanguage + ' %>/**/*.js',
+          spec
+        ]
       }];
       grunt.config('karma.' + taskName + '.files', files);
       grunt.config('karma.' + taskName + '.browsers', [browserName]);
