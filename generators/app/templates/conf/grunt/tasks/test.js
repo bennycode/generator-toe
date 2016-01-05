@@ -59,8 +59,9 @@ module.exports = function(grunt) {
   };
 
   var testSpecWithBrowser = function(browserName, testName) {
-    if(!browserName) {
-      grunt.log.writeln('You forgot to specify a browser. Defaulting to "Chrome".');
+    if(arguments.length === 1) {
+      grunt.log.writeln('Invalid number of arguments. Trying to fix this automatically...');
+      testName = browserName;
       browserName = browserDefault;
     }
 
