@@ -66,6 +66,8 @@ module.exports = function(grunt) {
     }
 
     if (isSupportedBrowser(browserName) && testName) {
+      grunt.log.writeln('Testing specification (written in ' + scriptLanguage + '): ' + testName);
+      
       // Get info about the Grunt task
       var parts = grunt.task.current.name.split('_');
       var scriptLanguage = parts[parts.length - 1];
