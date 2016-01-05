@@ -27,6 +27,7 @@ module.exports = {
     coverageReporter: {},
     files: [{
       src: [
+        '<%= dir.lib %>/**/*.js',
         '<%= dir.build_test %>/**/*.js',
         '<%= dir.src_test_js_jasmine_specs %>/**/*Spec.js'
       ]
