@@ -20,6 +20,7 @@ module.exports = function(grunt) {
     // JavaScript does not need transpilation
     if (scriptLanguage !== 'js') {
       grunt.task.run([
+        
         'newer:' + scriptLanguage + ':build_main_' + scriptLanguage,
         'newer:' + scriptLanguage + ':build_test_' + scriptLanguage
       ]);
@@ -66,12 +67,11 @@ module.exports = function(grunt) {
     }
 
     if (isSupportedBrowser(browserName) && testName) {
-      grunt.log.writeln('Testing specification (written in ' + scriptLanguage + '): ' + testName);
-      
       // Get info about the Grunt task
       var parts = grunt.task.current.name.split('_');
       var scriptLanguage = parts[parts.length - 1];
       var taskName = 'test_specs_browser';
+      grunt.log.writeln('Testing specification (written in ' + scriptLanguage + '): ' + testName);      
       // Override specification setting
       var spec = '<%= dir.build_test_' + scriptLanguage + '_jasmine_specs %>/' + testName + '.js';
       var files = [{
