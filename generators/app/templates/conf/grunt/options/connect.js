@@ -1,6 +1,6 @@
 module.exports = {
   options: {
-    base: '<%= dir.demo %>',
+    base: '.',
     hostname: '*',
     port: '<%= server.port.http %>',
     onCreateServer: function(server, connect, options) {
@@ -10,7 +10,7 @@ module.exports = {
   dev: {
     options: {
       livereload: '<%= server.port.livereload %>',
-      open: false
+      open: 'http://localhost:<%= server.port.http %>/<%= dir.demo %>'
     }
   },
   test_e2e: {
