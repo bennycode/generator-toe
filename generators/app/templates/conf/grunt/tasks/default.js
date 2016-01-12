@@ -6,19 +6,23 @@ module.exports = function(grunt) {
       // Retrieve dependencies
       'init',
       // Check scripts
+      'check:demo',
       'check:main',
       'check:test',
+      // Check styles
+      'check:demo:' + styleLanguage,
+      'check:main:' + styleLanguage,
       // Build scripts
+      'build:demo',
       'build:main',
       'build:test',
-      // Check styles
-      'check:main:' + styleLanguage,
       // Build styles
+      'build:demo:' + styleLanguage,
       'build:main:' + styleLanguage,
-      // Run tests
-      'test:specs',
+      // Test scripts
+      'test:specs_browser',
       // Run development environment
-      'dev:open'
+      'dev'
     ]);
   });
 };

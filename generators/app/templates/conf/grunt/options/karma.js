@@ -2,11 +2,7 @@ module.exports = {
   options: {
     basePath: '',
     frameworks: ['jasmine'],
-    files: [
-      '<%= dir.lib %>/**/*.js',
-      '<%= dir.build_main %>/**/*.js',
-      '<%= dir.src_main_js %>/**/*.js'
-    ],
+    files: [],
     exclude: [],
     preprocessors: {},
     reporters: ['progress'],
@@ -25,12 +21,11 @@ module.exports = {
   test_specs_browser: {
     browsers: ['Chrome'],
     coverageReporter: {},
-    files: [{
-      src: [
-        '<%= dir.lib %>/**/*.js',
-        '<%= dir.build_test %>/**/*.js',
-        '<%= dir.src_test_js_jasmine_specs %>/**/*Spec.js'
-      ]
-    }]
+    files: [
+      {src: ['<%= dir.lib %>/**/*.js'], served: true, included: true},
+      {src: ['<%= dir.build_main %>/**/*.js'], served: true, included: true},
+      {src: ['<%= dir.build_helper %>/**/*.js'], served: true, included: true},
+      {src: ['<%= dir.build_test %>/**/*Spec.js'], served: true, included: true}
+    ]
   }
 };
