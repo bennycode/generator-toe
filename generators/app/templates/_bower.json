@@ -4,6 +4,7 @@
   "main": "dist/<%= setup.projectName %>.min.js",
   "keywords": [],
   "dependencies": {},
+  "devDependencies": {},
   "ignore": [
     "*",
     "!dist/*"
