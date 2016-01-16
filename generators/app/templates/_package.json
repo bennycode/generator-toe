@@ -42,9 +42,12 @@
     "tslint": "~2.5"
   },
   "license": "LicenseRef-LICENSE",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "<%= setup.cmdGitHubUrl %>"
   },
-  "private": true
+  "scripts": {
+    "test": "grunt test"
+  }
 }
