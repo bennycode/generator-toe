@@ -56,6 +56,9 @@ module.exports = function(grunt) {
     ];
 
     grunt.option('force', true);
-    grunt.task.run(parts.join('_'));
+    grunt.task.run([
+      parts.join('_'),
+      'todo'
+    ]);
   });
 };

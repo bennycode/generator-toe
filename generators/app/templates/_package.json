@@ -27,6 +27,7 @@
     "grunt-nightwatch": "~0.4",
     "grunt-scss-lint": "~0.3",
     "grunt-stripcomments": "~0.4",
+    "grunt-todo": "~0.5",
     "grunt-ts": "~5.1",
     "grunt-tslint": "~2.5",
     "jasmine-core": "~2.3",
