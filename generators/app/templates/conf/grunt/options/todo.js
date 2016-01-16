@@ -25,7 +25,22 @@ module.exports = {
         name: "XXX",
         pattern: /XXX/,
         color: "red"
-      }
+      },
+      {
+        name: "Beginning of Git differences (<<<<<<<)",
+        pattern: /<<<<<<</,
+        color: "red"
+      },
+      {
+        name: "Ending of Git differences (>>>>>>>)",
+        pattern: />>>>>>>/,
+        color: "red"
+      },
+      {
+        name: "Split of Git differences (=======)",
+        pattern: /=======/,
+        color: "red"
+      },
     ]
   },
   src: [
