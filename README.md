@@ -64,6 +64,7 @@ With `yo toe` you get a complete development pipeline out-of-the-box which inclu
 - Minification
 - Obfuscation
 - Compression
+- Source Map Generation
 
 ### Deploying
 
