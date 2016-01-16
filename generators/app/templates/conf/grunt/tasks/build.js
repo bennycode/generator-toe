@@ -7,6 +7,13 @@ module.exports = function(grunt) {
     ]);
   });
 
+  grunt.registerTask('build_helper_coffee', function() {
+    grunt.task.run([
+      'clean:build_helper_coffee',
+      'coffee:build_helper_coffee'
+    ]);
+  });
+
   grunt.registerTask('build_main_coffee', function() {
     grunt.task.run([
       'clean:build_main_coffee',
