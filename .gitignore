@@ -1,4 +1,6 @@
-/.idea/
+.idea/**/*.xml
+!.idea/codeStyleSettings.xml
+!.idea/watcherTasks.xml
 /node_modules/
 /npm-debug.log
 /nbproject/private/
