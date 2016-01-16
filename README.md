@@ -1,5 +1,7 @@
 # generator-toe [![Build Status](https://secure.travis-ci.org/bennyn/generator-toe.png?branch=master)](https://travis-ci.org/bennyn/generator-toe)
 
+![Eierlegende Wollmilchsau](https://dl.dropboxusercontent.com/u/74217418/github.io/bennyn/generator-toe/wollmilchsau.jpg)
+
 `yo toe` is a generator for [Yeoman](http://yeoman.io) which creates a fantastic JavaScript project setup out-of-the-box including many features like code style checks, documentation generation, code coverage reports, minification and obfuscation and many more. Stay tuned for some videos which will show the benefits of this generator in detail.
 
 ## Getting Started
