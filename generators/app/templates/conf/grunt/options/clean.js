@@ -1,5 +1,6 @@
 module.exports = {
   build: '<%= dir.build %>',
+  build_helper_coffee: '<%= dir.build_helper_coffee %>',
   build_lib_coffee: '<%= dir.build_lib_coffee %>',
   build_lib_ts: '<%= dir.build_lib_ts %>',
   build_main: '<%= dir.build_main %>',

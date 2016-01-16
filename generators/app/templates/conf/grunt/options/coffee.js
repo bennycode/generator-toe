@@ -8,6 +8,13 @@ module.exports = {
       src: '**/*.coffee'
     }]
   },
+  build_helper_coffee: {
+    cwd: '<%= dir.source_helper_coffee %>',
+    dest: '<%= dir.build_helper_coffee %>',
+    expand: true,
+    ext: '.js',
+    src: '**/*.coffee'
+  },
   build_main_coffee: {
     files: [{
       cwd: '<%= dir.src_main_coffee %>',
