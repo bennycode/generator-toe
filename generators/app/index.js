@@ -61,8 +61,8 @@ module.exports = yeoman.generators.Base.extend({
 
       // Prompts
       var organizationName = {
-        message: 'I am assuming your project name is "' + chalk.yellow(currentDirectory) + '".' +
-        '\r\nWhat is your name on GitHub where you want to host this project?',
+        message: 'Your project name is "' + chalk.yellow(currentDirectory) + '".' +
+        '\r\nPlease tell me now the name of your GitHub organization.\r\nAlternatively you can tell me your GitHub username:',
         name: 'organizationName',
         type: 'input'
       };
@@ -195,31 +195,46 @@ module.exports = yeoman.generators.Base.extend({
     writeRootFiles: function () {
       // .editorconfig
       this.fs.copy(this.templatePath('_.editorconfig'), this.destinationPath('.editorconfig'));
+
       // .gitattributes
       this.fs.copy(this.templatePath('_.gitattributes'), this.destinationPath('.gitattributes'));
+
       // .gitignore
       this.fs.copy(this.templatePath('_.gitignore'), this.destinationPath('.gitignore'));
+
       // .travis.yml
       this.template('_.travis.yml', '.travis.yml', this, {});
+
       // bower.json
       this.template('_bower.json', 'bower.json', this, {});
+
+      // CONTRIBUTING.md
+      this.template('_CONTRIBUTING.md', 'CONTRIBUTING.md', this, {});
+
       // Gruntfile.js
       this.template('_Gruntfile.js', 'Gruntfile.js', this, {});
+
+      // init-git.bat & init-git.sh
+      this.template('_init-git.bat', 'init-git.bat', this, {});
+      this.template('_init-git.sh', 'init-git.sh', this, {});
+
       // LICENSE.md
       if (this.setup.licenseType) {
         this.template('licenses/' + this.setup.licenseType, 'LICENSE.md', this, {});
       }
+
       // package.json
       this.template('_package.json', 'package.json', this, {});
+
       // README.md
       this.template('_README.md', 'README.md', this, {});
     },
     writeDirectories: function () {
-
       var self = this;
 
       function createDirectoriesForSources(directory) {
         self.mkdirSync(self.destinationPath(directory));
+        self.fs.copy(self.templatePath('demo/.gitkeep'), self.destinationPath(directory + '/.gitkeep'));
 
         var selectedLanguages = [
           self.setup.scriptLanguage,
@@ -249,12 +264,19 @@ module.exports = yeoman.generators.Base.extend({
       this.template('_nbproject/_project.xml', 'nbproject/project.xml', this, {});
     },
     writeWebStormProjectFiles: function () {
-      return;
       this.mkdirSync(this.destinationPath('.idea'));
+
+      // Files without project name inside
       this.template('_.idea/_.name', '.idea/.name', this, {});
       this.template('_.idea/_codeStyleSettings.xml', '.idea/codeStyleSettings.xml', this, {});
-      this.template('_.idea/_project-name.iml', '.idea/' + this.setup.projectName + '.iml', this, {});
+      this.template('_.idea/_jsLibraryMappings.xml', '.idea/jsLibraryMappings.xml', this, {});
+      this.template('_.idea/_modules.xml', '.idea/modules.xml', this, {});
+      this.template('_.idea/_vcs.xml', '.idea/vcs.xml', this, {});
       this.template('_.idea/_watcherTasks.xml', '.idea/watcherTasks.xml', this, {});
+
+      // Files based on project name
+      this.template('_.idea/libraries/_project-name_node_modules.xml', '.idea/libraries/' + this.setup.projectName + '_node_modules.xml', this, {});
+      this.template('_.idea/_project-name.iml', '.idea/' + this.setup.projectName + '.iml', this, {});
     }
   },
   conflicts: {},
@@ -274,9 +296,11 @@ module.exports = yeoman.generators.Base.extend({
         return;
       }
 
-      this.log('\r\nStarting ' + chalk.yellow('development environment') + ' for you...\r\n');
-      var done = this.async();
-      this.spawnCommand('grunt', ['default', '--force']).on('close', done);
+      this.on('end', function () {
+        this.spawnCommand('git', ['init']);
+        this.log('\r\nStarting ' + chalk.yellow('development environment') + ' for you...\r\n');
+        this.spawnCommand('grunt', ['default', '--force']);
+      });
     }
   }
 });
