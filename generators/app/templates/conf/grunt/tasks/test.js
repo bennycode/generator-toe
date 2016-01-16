@@ -32,35 +32,6 @@ module.exports = function (grunt) {
     grunt.task.run('concurrent:test_e2e');
   };
 
-  // TODO: Remove "jasmine" in the future...
-  var testSpec = function (testName) {
-    if (testName) {
-      // Parse info about the Grunt task
-      var parts = grunt.task.current.name.split('_');
-      var scriptLanguage = parts[parts.length - 1];
-      var nextTask = 'test_specs_' + scriptLanguage;
-      // Override task settings
-      var testName = '<%= dir.build_test_' + scriptLanguage + '_jasmine_specs %>/' + testName + '.js';
-      grunt.config('jasmine.' + nextTask + '.options.specs', testName);
-      // Run tasks
-      startTranspilation(scriptLanguage);
-      grunt.task.run(nextTask);
-    } else {
-      grunt.log.writeln('Please specify the relative path for a Jasmine specification like "Util/MyUtilSpec"');
-    }
-  };
-
-  var testSpecs = function () {
-    var parts = grunt.task.current.name.split('_');
-    var scriptLanguage = parts[parts.length - 1];
-    grunt.task.run([
-      'build_helper_' + scriptLanguage,
-      'build_main_' + scriptLanguage,
-      'build_test_' + scriptLanguage,
-      'jasmine:test_specs_' + scriptLanguage
-    ]);
-  };
-
   var testSpecWithBrowser = function (browserName, testName) {
     if (arguments.length === 1) {
       grunt.log.writeln('Invalid number of arguments. Trying to fix this automatically...');
@@ -118,22 +89,16 @@ module.exports = function (grunt) {
 
   // CoffeeScript
   grunt.registerTask('test_e2e_coffee', testEndToEnd);
-  grunt.registerTask('test_spec_coffee', testSpec);
-  grunt.registerTask('test_specs_coffee', testSpecs);
   grunt.registerTask('test_spec_browser_coffee', testSpecWithBrowser);
   grunt.registerTask('test_specs_browser_coffee', testSpecsWithBrowser);
 
   // JavaScript
   grunt.registerTask('test_e2e_js', testEndToEnd);
-  grunt.registerTask('test_spec_js', testSpec);
-  grunt.registerTask('test_specs_js', testSpecs);
   grunt.registerTask('test_spec_browser_js', testSpecWithBrowser);
   grunt.registerTask('test_specs_browser_js', testSpecsWithBrowser);
 
   // TypeScript
   grunt.registerTask('test_e2e_ts', testEndToEnd);
-  grunt.registerTask('test_spec_ts', testSpec);
-  grunt.registerTask('test_specs_ts', testSpecs);
   grunt.registerTask('test_spec_browser_ts', testSpecWithBrowser);
   grunt.registerTask('test_specs_browser_ts', testSpecsWithBrowser);
 
@@ -142,7 +107,7 @@ module.exports = function (grunt) {
     grunt.log.writeln('=== ' + grunt.task.current.name.toUpperCase() + ' ===');
 
     if (option === undefined) {
-      option = 'specs';
+      option = 'specs_browser';
     }
 
     var parts = [
