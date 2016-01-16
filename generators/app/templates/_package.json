@@ -19,7 +19,7 @@
     "grunt-contrib-sass": "~0.9",
     "grunt-contrib-uglify": "~0.9",
     "grunt-contrib-watch": "~0.6",
-    "grunt-david": "~0.6",
+    "grunt-david": "~0.7",
     "grunt-eslint": "~17.3",
     "grunt-jsdoc": "~1.0",
     "grunt-karma": "~0.12",
