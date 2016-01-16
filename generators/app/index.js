@@ -269,13 +269,11 @@ module.exports = yeoman.generators.Base.extend({
       // Files without project name inside
       this.template('_.idea/_.name', '.idea/.name', this, {});
       this.template('_.idea/_codeStyleSettings.xml', '.idea/codeStyleSettings.xml', this, {});
-      this.template('_.idea/_jsLibraryMappings.xml', '.idea/jsLibraryMappings.xml', this, {});
       this.template('_.idea/_modules.xml', '.idea/modules.xml', this, {});
       this.template('_.idea/_vcs.xml', '.idea/vcs.xml', this, {});
       this.template('_.idea/_watcherTasks.xml', '.idea/watcherTasks.xml', this, {});
 
       // Files based on project name
-      this.template('_.idea/libraries/_project-name_node_modules.xml', '.idea/libraries/' + this.setup.projectName + '_node_modules.xml', this, {});
       this.template('_.idea/_project-name.iml', '.idea/' + this.setup.projectName + '.iml', this, {});
     }
   },
