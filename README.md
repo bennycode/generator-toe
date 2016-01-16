@@ -1,4 +1,6 @@
-# generator-toe [![Build Status](https://secure.travis-ci.org/bennyn/generator-toe.png?branch=master)](https://travis-ci.org/bennyn/generator-toe)
+# generator-toe
+
+[![Build Status](https://secure.travis-ci.org/bennyn/generator-toe.png?branch=master)](https://travis-ci.org/bennyn/generator-toe)
 
 ![Eierlegende Wollmilchsau](https://dl.dropboxusercontent.com/u/74217418/github.io/bennyn/generator-toe/wollmilchsau.jpg)
 
