@@ -1,7 +1,11 @@
 {
   "name": "<%= setup.projectName %>",
   "description": "",
-  "main": "dist/<%= setup.projectName %>.js",
+  "main": [
+    "dist/<%= setup.projectName %>.js",
+    "dist/<%= setup.projectName %>.min.js",
+    "dist/<%= setup.projectName %>.min.js.map"
+  ],
   "keywords": [],
   "dependencies": {},
   "devDependencies": {},

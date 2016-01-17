@@ -86,4 +86,4 @@ With `yo toe` you get a complete development pipeline out-of-the-box which inclu
 
 - Development server
 - File Watcher
-- Auto Reload
+- Live Reload

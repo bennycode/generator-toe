@@ -1,22 +1,34 @@
 module.exports = function(grunt) {
-  grunt.registerTask('docs', function(programmingLanguage) {
-    var tasks = [
-      'clean:documentation'
+  // CoffeeScript
+  grunt.registerTask('docs_code_coffee', function() {
+    grunt.task.run([
+      'clean:docs_code',
+      'codo:docs_code_coffee'
+    ]);
+  });
+
+  // JavaScript
+  grunt.registerTask('docs_code_js', function() {
+    grunt.task.run([
+      'clean:docs_code',
+      'jsdoc:docs_code_js'
+    ]);
+  });
+
+  // Default
+  grunt.registerTask('docs', function(option, scriptLanguage) {
+    grunt.log.writeln('=== ' + grunt.task.current.name.toUpperCase() + ' ===');
+
+    if (option === undefined) {
+      option = 'code';
+    }
+
+    var parts = [
+      grunt.task.current.name,
+      option,
+      scriptLanguage || grunt.config('script')
     ];
 
-    var validParameter = true;
-
-    switch (programmingLanguage) {
-      case 'js':
-        tasks.push('jsdoc:source_code');
-        break;
-      default:
-        grunt.log.writeln('Invalid parameter');
-        validParameter = false;
-    }
-
-    if (validParameter) {
-      grunt.task.run(tasks);
-    }
+    grunt.task.run(parts.join('_'));
   });
 };

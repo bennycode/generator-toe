@@ -1,10 +1,10 @@
 module.exports = {
-  source_code: {
+  docs_code_js: {
     options: {
-      destination: '<%= dir.documentation %>'
+      destination: '<%= dir.docs_code %>'
     },
     src: [
-      '<%= dir.source_code.js %>/**/*.js'
+      '<%= dir.src_main_js %>/**/*.js'
     ]
   }
 };

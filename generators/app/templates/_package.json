@@ -1,11 +1,13 @@
 {
   "name": "<%= setup.projectName %>",
   "version": "0.1.0",
+  "dependencies": {},
   "devDependencies": {
     "coffeelint": "^1",
     "glob": "5.0.15",
     "grunt": "~0.4",
     "grunt-bower-task": "~0.4",
+    "grunt-codo": "~0.2",
     "grunt-coffeelint": "0.0.13",
     "grunt-concurrent": "~2.0",
     "grunt-contrib-clean": "~0.6",
@@ -20,7 +22,7 @@
     "grunt-contrib-watch": "~0.6",
     "grunt-david": "~0.7",
     "grunt-eslint": "~17.3",
-    "grunt-jsdoc": "~1.0",
+    "grunt-jsdoc": "~1.1",
     "grunt-karma": "~0.12",
     "grunt-lesslint": "~1.4",
     "grunt-newer": "~1.1",
@@ -48,6 +50,10 @@
     "type": "git",
     "url": "<%= setup.cmdGitHubUrl %>"
   },
+  "bugs": {
+    "url": "https://github.com/<%= setup.organizationName %>/<%= setup.projectName %>/issues"
+  },
+  "homepage": "https://github.com/<%= setup.organizationName %>/<%= setup.projectName %>",
   "scripts": {
     "test": "grunt test"
   }
