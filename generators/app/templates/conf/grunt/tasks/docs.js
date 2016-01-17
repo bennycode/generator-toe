@@ -1,4 +1,12 @@
 module.exports = function(grunt) {
+  // Tasks
+  var generateCodeCoverage = function() {
+    grunt.task.run([
+      'clean:docs_coverage',
+      'karma:docs_coverage'
+    ]);
+  };
+
   // CoffeeScript
   grunt.registerTask('docs_code_coffee', function() {
     grunt.task.run([
@@ -7,6 +15,8 @@ module.exports = function(grunt) {
     ]);
   });
 
+  grunt.registerTask('docs_coverage_coffee', generateCodeCoverage);
+
   // JavaScript
   grunt.registerTask('docs_code_js', function() {
     grunt.task.run([
@@ -14,6 +24,11 @@ module.exports = function(grunt) {
       'jsdoc:docs_code_js'
     ]);
   });
+
+  grunt.registerTask('docs_coverage_js', generateCodeCoverage);
+
+  // TypeScript
+  grunt.registerTask('docs_coverage_ts', generateCodeCoverage);
 
   // Default
   grunt.registerTask('docs', function(option, scriptLanguage) {
@@ -29,6 +44,8 @@ module.exports = function(grunt) {
       scriptLanguage || grunt.config('script')
     ];
 
-    grunt.task.run(parts.join('_'));
+    grunt.task.run([
+      parts.join('_')
+    ]);
   });
 };

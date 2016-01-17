@@ -52,8 +52,8 @@ With `yo toe` you get a complete development pipeline out-of-the-box which inclu
 
 `grunt docs`
 
-- Code Coverage
-- Documentation
+- Code Coverage (`grunt docs:coverage`)
+- Code Documentation (`grunt docs:code`)
 
 ### Distributing
 

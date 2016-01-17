@@ -13,6 +13,7 @@ module.exports = {
   build_test_ts: '<%= dir.build_test_ts %>',
   dist: '<%= dir.dist %>',
   docs_code: '<%= dir.docs_code %>',
+  docs_coverage: '<%= dir.docs_coverage %>',
   src_main_js: '<%= dir.src_main_js %>',
   src_main_ts: '<%= dir.src_main_ts %>'
 };

@@ -1,8 +1,14 @@
 module.exports = {
   options: {
     basePath: '',
+    browsers: ['Chrome'],
     frameworks: ['jasmine'],
-    files: [],
+    files: [
+      '<%= dir.lib %>/**/*.js',
+      '<%= dir.build_main %>/**/*.js',
+      '<%= dir.build_helper %>/**/*.js',
+      '<%= dir.build_test %>/**/*Spec.js'
+    ],
     exclude: [],
     preprocessors: {},
     reporters: ['progress'],
@@ -19,13 +25,16 @@ module.exports = {
     singleRun: true
   },
   test_specs_browser: {
-    browsers: ['Chrome'],
-    coverageReporter: {},
-    files: [
-      {src: ['<%= dir.lib %>/**/*.js'], served: true, included: true},
-      {src: ['<%= dir.build_main %>/**/*.js'], served: true, included: true},
-      {src: ['<%= dir.build_helper %>/**/*.js'], served: true, included: true},
-      {src: ['<%= dir.build_test %>/**/*Spec.js'], served: true, included: true}
-    ]
+    coverageReporter: {}
+  },
+  docs_coverage: {
+    reporters: ['progress', 'coverage'],
+    coverageReporter: {
+      type: 'html',
+      dir: '<%= dir.docs_coverage %>'
+    },
+    preprocessors: {
+      '<%= dir.build_main %>/**/*.js': ['coverage']
+    }
   }
 };
