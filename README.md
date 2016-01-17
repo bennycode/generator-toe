@@ -9,10 +9,9 @@
 ## Getting Started
 
 ```bash
-npm install -g npm                # Upgrade to latest npm version
-npm install -g yo                 # Install Yeoman (globally)
-npm install -g generator-toe      # Install Yeoman generator (globally)
-yo toe                            # Run Yeoman generator
+npm install -g yo                 # Install Yeoman
+npm install -g generator-toe      # Install "yo toe"
+yo toe                            # Run "yo toe"
 ```
 
 ## Development Pipeline
@@ -81,3 +80,10 @@ With `yo toe` you get a complete development pipeline out-of-the-box which inclu
 - Project setup for NetBeans IDE 8+
 - Project setup for WebStorm IDE 10+
 
+### Developing
+
+`grunt dev`
+
+- Development server
+- File Watcher
+- Auto Reload
