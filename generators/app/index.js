@@ -251,7 +251,6 @@ module.exports = yeoman.generators.Base.extend({
       wrench.copyDirSyncRecursive(this.templatePath('demo'), this.destinationPath('demo'), {forceDelete: true});
       this.mkdirSync(this.destinationPath('dist'));
       this.mkdirSync(this.destinationPath('docs'));
-      this.mkdirSync(this.destinationPath('reports'));
       this.mkdirSync(this.destinationPath('src'));
       createDirectoriesForSources('src/main');
       createDirectoriesForSources('src/test');
