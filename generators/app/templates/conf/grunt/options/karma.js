@@ -31,7 +31,8 @@ module.exports = {
     port: '<%= server.port.karma_test_runner %>',
     colors: true,
     autoWatch: true,
-    singleRun: true
+    singleRun: true,
+    logLevel: 'debug'
   },
   test_specs_browser: {
     coverageReporter: {}
