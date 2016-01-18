@@ -1,7 +1,16 @@
 module.exports = {
   options: {
     basePath: '',
-    browsers: ['Chrome'],
+    // Available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+    browsers: [process.env.TRAVIS ? 'Chrome_travis_ci' : 'Chrome'],
+    customLaunchers: {
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    },
+    // How many browser should be started simultaneously
+    concurrency: Infinity,
     frameworks: ['jasmine'],
     files: [
       '<%= dir.lib %>/**/*.js',

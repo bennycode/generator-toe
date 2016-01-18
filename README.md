@@ -9,9 +9,18 @@
 ## Getting Started
 
 ```bash
-npm install -g yo                 # Install Yeoman
-npm install -g generator-toe      # Install "yo toe"
-yo toe                            # Run "yo toe"
+# Install Yeoman
+npm install -g yo
+
+# Install the "yo toe" generator
+npm install -g generator-toe
+
+# Create a directory for your project and switch to it
+mkdir my-new-project
+cd my-new-project
+
+# Run the generator (inside your new project directory)
+yo toe
 ```
 
 ## Development Pipeline
@@ -79,6 +88,7 @@ With `yo toe` you get a complete development pipeline out-of-the-box which inclu
 
 - Project setup for NetBeans IDE 8+
 - Project setup for WebStorm IDE 10+
+- Support for Travis CI Environment
 
 ### Developing
 
