@@ -55,7 +55,13 @@ With `yo toe` you get a complete development pipeline out-of-the-box which inclu
 `grunt test`
 
 - Unit testing (Specification Tests)
+- In-Browser testing
 - End-to-End testing
+
+**Examples**
+
+- `grunt test_specs_browser:Chrome`
+- `grunt test_specs_browser:PhantomJS`
 
 ### Reporting
 
