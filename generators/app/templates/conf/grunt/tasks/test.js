@@ -41,8 +41,7 @@ module.exports = function(grunt) {
 
     if (isSupportedBrowser(browserName) && testName) {
       // Get info about the Grunt task
-      var parts = grunt.task.current.name.split('_');
-      var scriptLanguage = parts[parts.length - 1];
+      var scriptLanguage = grunt.config('script');
       var taskName = 'test_specs_browser';
       // Override specification setting
       var spec = '<%= dir.build_test_' + scriptLanguage + ' %>/' + testName + '.js';
@@ -65,8 +64,7 @@ module.exports = function(grunt) {
 
   var testSpecsWithBrowser = function(browserName) {
     // Parse info about the Grunt task
-    var parts = grunt.task.current.name.split('_');
-    var scriptLanguage = parts[parts.length - 1];
+    var scriptLanguage = grunt.config('script');
     // Override task settings
     var taskName = 'test_specs_browser';
     // Run tasks
@@ -107,5 +105,10 @@ module.exports = function(grunt) {
     ];
 
     grunt.task.run(parts.join('_'));
+  });
+
+  grunt.registerTask('test_specs_browser', function(browserName) {
+    grunt.log.writeln('=== ' + grunt.task.current.name.toUpperCase() + ' ===');
+    testSpecsWithBrowser(browserName);
   });
 };
