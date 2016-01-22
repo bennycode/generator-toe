@@ -11,6 +11,12 @@
         <XML>
           <option name="XML_LEGACY_SETTINGS_IMPORTED" value="true" />
         </XML>
+        <editorconfig>
+          <option name="ENABLED" value="true" />
+        </editorconfig>
+        <codeStyleSettings language="CoffeeScript">
+          <option name="KEEP_FIRST_COLUMN_COMMENT" value="false" />
+        </codeStyleSettings>
       </value>
     </option>
     <option name="USE_PER_PROJECT_SETTINGS" value="true" />
