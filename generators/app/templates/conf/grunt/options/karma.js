@@ -9,6 +9,7 @@ module.exports = {
         flags: ['--no-sandbox']
       }
     },
+    browserNoActivityTimeout: 60000,
     // How many browser should be started simultaneously
     concurrency: Infinity,
     frameworks: ['jasmine'],
