@@ -22,13 +22,6 @@ module.exports = {
     exclude: [],
     preprocessors: {},
     reporters: ['progress'],
-    coverageReporter: {
-      dir: '<%= dir.reports_coverage %>',
-      reporters: [{
-        type: 'html',
-        subdir: 'html'
-      }]
-    },
     port: '<%= server.port.karma_test_runner %>',
     colors: true,
     autoWatch: true,
