@@ -1,6 +1,7 @@
 module.exports = {
   options: {
     configFile: '<%= dir.conf_linter %>/coffeelint.json'
+    force: true
   },
   check_main_coffee: {
     files: {
