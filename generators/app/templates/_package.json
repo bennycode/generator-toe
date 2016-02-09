@@ -55,6 +55,7 @@
   },
   "homepage": "https://github.com/<%= setup.organizationName %>/<%= setup.projectName %>",
   "scripts": {
+    "postinstall": "grunt init",
     "test": "grunt test"
   }
 }
