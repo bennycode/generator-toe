@@ -9,8 +9,10 @@ module.exports = {
       ]
     },
     options: {
+      preserveComments: false,
       screwIE8: true,
-      sourceMap: true
+      sourceMap: true,
+      sourceMapIncludeSources: true
     }
   }
 };
