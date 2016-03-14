@@ -36,12 +36,15 @@ module.exports = function (grunt) {
   grunt.event.on('watch', function (action, filepath, target) {
     grunt.log.writeln(target + ': ' + filepath + ' has ' + action);
 
+    if (action === 'deleted') {
+      return;
+    }
+
     var directories = filepath.split(path.sep);
     var extension = path.extname(filepath).substr(1);
     if (extension === 'scss') {
       extension = 'sass';
     }
-    var task = undefined;
 
     // Example: src/main/coffee/MyClass.coffee
     if (directories.length > 3) {
